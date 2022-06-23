@@ -1,0 +1,34 @@
+{
+	"name": "desing-pattern-training",
+	"version": "0.0.1",
+	"description": "Desing Pattern Training",
+	"main": "index.ts",
+	"scripts": {
+		"test": "jest __test__/",
+		"test:coverage": "jest __test__/ --coverage",
+		"start": "ts-node src/index.ts",
+		"lint": "eslint --ext .ts,.js src/ __test__/",
+		"lint:fix": "eslint --ext .ts,.js src/ __test__/ --fix"
+	},
+	"keywords": [
+		"Design",
+		"Patterns"
+	],
+	"author": "Cruz Ortiz",
+	"license": "ISC",
+	"dependencies": {
+		"@types/node": "^17.0.34",
+		"ts-node": "^10.7.0",
+		"typescript": "^4.6.4"
+	},
+	"devDependencies": {
+		"@types/jest": "^27.5.1",
+		"ts-jest": "^28.0.2",
+		"@typescript-eslint/eslint-plugin": "^5.25.0",
+		"@typescript-eslint/parser": "^5.25.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint": "^8.15.0",
+		"jest": "^28.1.0",
+		"eslint-config-google": "^0.14.0"
+	}
+}
