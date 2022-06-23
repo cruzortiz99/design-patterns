@@ -1,7 +1,7 @@
 {
-	"name": "desing-pattern-training",
+	"name": "design-pattern-training",
 	"version": "0.0.1",
-	"description": "Desing Pattern Training",
+	"description": "Design Pattern Training",
 	"main": "index.ts",
 	"scripts": {
 		"test": "jest __test__/",
