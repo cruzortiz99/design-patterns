@@ -1,9 +1,9 @@
 package factory_method
 
 type User struct {
-	id        int
-	firstName string
-	lastName  string
+	Id        int
+	FirstName string
+	LastName  string
 }
 
 func MapStr(mapper func(value string, index int) string, list []string) []string {
@@ -20,6 +20,15 @@ func MapMapStr(
 	var newSlice []string
 	for index, item := range list {
 		newSlice = append(newSlice, mapper(item, index))
+	}
+	return newSlice
+}
+func MapUser(
+	mapper func(value User, index int) string,
+	users []User) []string {
+	var newSlice []string
+	for index, user := range users {
+		mapper(user, index)
 	}
 	return newSlice
 }
