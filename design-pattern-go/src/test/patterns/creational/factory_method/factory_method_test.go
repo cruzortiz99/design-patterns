@@ -2,22 +2,21 @@ package factory_method
 
 import (
 	"design_patterns_training/patterns/creational/factory_method"
-	"reflect"
 	"testing"
 )
 
 func TestShouldCreateSmallCarWhenSmallCarFactoryProduceCar(t *testing.T) {
-	factory := factory_method.SmallCarFactory{}
-	car := factory.ProduceCar()
-	if reflect.TypeOf(car) != reflect.TypeOf(factory_method.SmallCar{}) {
-		t.Fatalf("car type is Not SmallCar")
+	var factory factory_method.CarFactory = &factory_method.SmallCarFactory{}
+	car, ok := factory.ProduceCar().(factory_method.SmallCar)
+	if !ok {
+		t.Fatalf("Car must be Small Car, type received %T\n", car)
 	}
 }
 
 func TestShouldCreateBigCarWhenBigFactoryProduceCar(t *testing.T) {
-	factory := factory_method.BigCarFactory{}
-	car := factory.ProduceCar()
-	if reflect.TypeOf(car) != reflect.TypeOf(factory_method.BigCar{}) {
-		t.Fatalf("car type is Not BigCar")
+	var factory factory_method.CarFactory = &factory_method.BigCarFactory{}
+	car, ok := factory.ProduceCar().(factory_method.BigCar)
+	if !ok {
+		t.Fatalf("Car must be Big Car, type received %T\n", car)
 	}
 }

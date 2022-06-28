@@ -4,6 +4,6 @@ type BigCarFactory struct {
 	CarFactory
 }
 
-func (f *BigCarFactory) ProduceCar() BigCar {
-	return BigCar{Car: Car{}}
+func (f *BigCarFactory) ProduceCar() Car {
+	return BigCar{}
 }
