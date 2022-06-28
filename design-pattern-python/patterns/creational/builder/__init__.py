@@ -1,6 +1,6 @@
-class __Car:
+class _Car:
     def __init__(self, doors: int, motor: str,
-                 lts: float, ac: bool, electronic: bool) -> None:
+                 lts: float, ac: bool, electronic: bool):
         self.doors = doors
         self.motor = motor
         self.lts = lts
@@ -10,7 +10,7 @@ class __Car:
 
 class CarBuilder:
     def __init__(self):
-        self.__car = __Car(2, "4L", 1.4, False, False)
+        self.__car = _Car(2, "4L", 1.4, False, False)
 
     def set_doors(self, doors: int) -> "CarBuilder":
         self.__car.doors = doors
@@ -32,5 +32,5 @@ class CarBuilder:
         self.__car.electronic = electronics
         return self
 
-    def build(self) -> __Car:
+    def build(self) -> "_Car":
         return self.__car

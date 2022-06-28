@@ -40,7 +40,7 @@ public class CarBuilder {
    * @param lts the lts to set
    */
   public CarBuilder setLts(Float lts) {
-    this.setLts(lts);
+    this.car.setLts(lts);
     return this;
   }
 
