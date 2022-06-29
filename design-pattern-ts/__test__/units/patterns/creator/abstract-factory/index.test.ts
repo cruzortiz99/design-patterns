@@ -1,27 +1,31 @@
 import {
-	ConcreteFactory1,
-	ConcreteFactory2,
-	ConcreteProductA1,
-	ConcreteProductA2,
-	ConcreteProductB1,
-	ConcreteProductB2,
+	FordExplorer,
+	FordFactory,
+	FordMustang,
+	ToyotaFactory,
+	ToyotaForRunner,
+	ToyotaYaris,
 } from "@patterns/creator/abstract-factory"
 
-describe( "Creator pattern: Abstract Factory", () => {
-	it( "Should create a Product A 1 from abstract factory", () => {
-		const productA1 = new ConcreteFactory1().createProductA()
-		expect( productA1 ).toBeInstanceOf( ConcreteProductA1 )
-	} )
-	it( "Should create a Product B 1 from abstract factory", () => {
-		const productB1 = new ConcreteFactory1().createProductB()
-		expect( productB1 ).toBeInstanceOf( ConcreteProductB1 )
-	} )
-	it( "Should create a Product A 2 from abstract factory", () => {
-		const productA2 = new ConcreteFactory2().createProductA()
-		expect( productA2 ).toBeInstanceOf( ConcreteProductA2 )
-	} )
-	it( "Should create a Product B 2 from abstract factory", () => {
-		const productB2 = new ConcreteFactory2().createProductB()
-		expect( productB2 ).toBeInstanceOf( ConcreteProductB2 )
-	} )
-} )
+describe("Creator pattern: Abstract Factory", () => {
+	it(`Should create ford mustang 
+	when ford factory produce deport car`, () => {
+		const car = new FordFactory().produceDeportCar()
+		expect(car).toBeInstanceOf(FordMustang)
+	})
+	it(`Should ford explorer 
+	when ford factory produce rustic car`, () => {
+		const car = new FordFactory().produceRusticCar()
+		expect(car).toBeInstanceOf(FordExplorer)
+	})
+	it(`Should create toyota yaris
+	when toyota factory produce deport car`, () => {
+		const car = new ToyotaFactory().produceDeportCar()
+		expect(car).toBeInstanceOf(ToyotaYaris)
+	})
+	it(`Should create for runner
+	when toyota factory produce rustic car`, () => {
+		const car = new ToyotaFactory().produceRusticCar()
+		expect(car).toBeInstanceOf(ToyotaForRunner)
+	})
+})

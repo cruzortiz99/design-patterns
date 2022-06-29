@@ -1,17 +1,17 @@
 import {
-	CreatorOfProductA,
-	CreatorOfProductB,
-	ProductA,
-	ProductB,
+	SmallCarFactory,
+	BigCarFactory,
+	SmallCar,
+	BigCar,
 } from "@patterns/creator/factory-method"
 
-describe( "Creators Pattern: Factory Method", () => {
-	it( "Should create element Product A from factory A", () => {
-		const productA = new CreatorOfProductA().createProduct()
-		expect( productA ).toBeInstanceOf( ProductA )
-	} )
-	it( "Should create element Product B from factory B", () => {
-		const productB = new CreatorOfProductB().createProduct()
-		expect( productB ).toBeInstanceOf( ProductB )
-	} )
-} )
+describe("Creators Pattern: Factory Method", () => {
+	it("Should create small car when small car factory produce car", () => {
+		const productA = new SmallCarFactory().createCar()
+		expect(productA).toBeInstanceOf(SmallCar)
+	})
+	it("Should create big car when big car factory produce car", () => {
+		const productB = new BigCarFactory().createCar()
+		expect(productB).toBeInstanceOf(BigCar)
+	})
+})
