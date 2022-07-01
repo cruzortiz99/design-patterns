@@ -4,11 +4,11 @@
 	"description": "Design Pattern Training",
 	"main": "index.ts",
 	"scripts": {
-		"test": "jest __test__/",
-		"test:coverage": "jest __test__/ --coverage",
+		"test": "jest test/",
+		"test:coverage": "jest test/ --coverage",
 		"start": "ts-node src/index.ts",
-		"lint": "eslint --ext .ts,.js src/ __test__/",
-		"lint:fix": "eslint --ext .ts,.js src/ __test__/ --fix"
+		"lint": "eslint --ext .ts,.js src/ test/",
+		"lint:fix": "eslint --ext .ts,.js src/ test/ --fix"
 	},
 	"keywords": [
 		"Design",
