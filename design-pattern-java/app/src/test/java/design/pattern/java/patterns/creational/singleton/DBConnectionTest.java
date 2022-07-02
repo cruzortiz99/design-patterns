@@ -29,7 +29,6 @@ public class DBConnectionTest {
       host, port, username, password);
     Stream.generate(() -> Double.valueOf(Math.random() * 100).intValue())
       .limit(10)
-      .peek((t) -> System.out.println(t))
       .map(
         (index) -> DBConnection.create(
           host, port, username.concat(index.toString()), password)
