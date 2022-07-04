@@ -1,3 +1,5 @@
-export function greeting() {
-	console.log("hola mundo")
+export function main ( ...args: string[] ) {
+	console.log( ...args.slice( 2 ) )
 }
+
+main( ...process.argv )
