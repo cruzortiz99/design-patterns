@@ -1,8 +1,5 @@
 package design.pattern.java.patterns.creational.singleton;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
-
 public class DBConnection {
 
   private static DBConnection instance;
