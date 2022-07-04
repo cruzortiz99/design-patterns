@@ -21,7 +21,7 @@ class SingletonTest(unittest.TestCase):
         username = "test"
         password = "****"
         connection = DBConnection_create(host, port, username, password)
-        for index in range(10):
+        for index in range(11):
             dbConnection = DBConnection_create(
                 host, port + index, username, password)
             self.assertIs(connection, dbConnection)
