@@ -1,11 +1,20 @@
-import { AdaptedService, SomeService } from "@src/patterns/structural/adapter"
+import { 
+  AdapterNumToString, 
+  ServicePrintString } from "@src/patterns/structural/adapter"
 
 describe( "Structural Patterns: Adapter Pattern", () => {
-  it( "Should call the base service method", () => {
-    const mockService: SomeService<string, string> = {
-      run: jest.fn()
-    }
-    new AdaptedService( mockService ).run( "test" )
-    expect( mockService.run ).toHaveBeenCalledTimes( 1 )
-  } )
+  it("Should return msg when service is called", () => {
+    const inputService = "test"
+    const service = new ServicePrintString()
+    const result = service.run(inputService)
+    expect(result).not.toStrictEqual(inputService)
+    expect(result.endsWith(inputService)).toBeTruthy()
+  })
+  it("Should return msg when adapter is called", () => {
+    const inputService = 1234
+    const service = new AdapterNumToString(new ServicePrintString())
+    const result = service.run(inputService)
+    expect(result).not.toStrictEqual(inputService)
+    expect(result.endsWith(`${inputService}`)).toBeTruthy()
+  })
 } )
