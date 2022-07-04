@@ -1,2 +1,9 @@
+import sys
+
+
+def main(*args):
+    print(args)
+
+
 if __name__ == "__main__":
-    print("running")
+    main(sys.argv[1:])

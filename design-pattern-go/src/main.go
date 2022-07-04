@@ -2,8 +2,14 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 func main() {
-	fmt.Println("Design Patterns Project")
+	args := os.Args[1:]
+	printArgs(args...)
+}
+
+func printArgs(args ...string) {
+	fmt.Println(args)
 }
