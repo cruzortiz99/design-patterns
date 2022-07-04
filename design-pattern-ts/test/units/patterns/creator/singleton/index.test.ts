@@ -22,7 +22,7 @@ describe( "Creator Pattern: Singleton", () => {
     Array.of( 1, 2, 3 ).map( ( index ) => DBConnection.create(
       host, port + index, username.concat( `${index}` ), password
     ) ).forEach( ( dBConnection ) => {
-      expect( dBConnection ).not.toBe( connection )
+      expect( dBConnection ).toBe( connection )
     } )
   } )
 } )
