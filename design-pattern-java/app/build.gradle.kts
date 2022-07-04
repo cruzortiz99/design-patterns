@@ -33,3 +33,10 @@ tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+tasks.jar {
+    manifest {
+        attributes(
+            "Main-Class" to "design.pattern.java.App"
+        )
+    }
+}

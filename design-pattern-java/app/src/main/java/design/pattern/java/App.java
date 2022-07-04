@@ -3,6 +3,11 @@
  */
 package design.pattern.java;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -10,5 +15,18 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        Map<String,String> params = App.makeMapProperties(args);
+        System.out.println(params.keySet());
+    }
+    public static Map<String, String> makeMapProperties(String ...args) {
+        Map<String, String> mapParams = new HashMap<>();
+        Stream.of(args)
+            .filter(arg -> arg.startsWith("-P"))
+            .filter(arg -> arg.contains("="))
+            .peek(validArg -> mapParams.put(
+                validArg.split("=")[0].trim().split("-P")[1], 
+                validArg.split("=")[1].trim()))
+            .collect(Collectors.toList());
+        return mapParams;
     }
 }
