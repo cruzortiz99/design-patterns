@@ -1,16 +1,18 @@
 import {
-  BridgeConcreteLibrary, SomeLibraryInterface
+  ServiceBridge, SomeLibraryInterface
 } from "@src/patterns/structural/bridge"
 
 describe( "Structural Pattern: Bridge Pattern", () => {
-  it( "Should call libraries methods", () => {
-    const libraryMock: SomeLibraryInterface = {
-      method1: jest.fn(),
-      method2: jest.fn(),
-      method3: jest.fn()
+  it( "Should call lib method when bridge feature is called", () => {
+    const someLibraryMock: SomeLibraryInterface = {
+      writeString: jest.fn(() => ""),
+      writeOtherString: jest.fn(()=>""),
+      integerGenerator: jest.fn(()=> 5)
     }
-    new BridgeConcreteLibrary( libraryMock ).feature()
-    expect( libraryMock.method1 ).toHaveBeenCalledTimes( 1 )
-    expect( libraryMock.method2 ).toHaveBeenCalledTimes( 1 )
+    const bridge = new ServiceBridge(someLibraryMock)
+    bridge.concreteFeature()
+    expect(someLibraryMock.writeString).toHaveBeenCalledTimes(1)
+    expect(someLibraryMock.writeOtherString).toHaveBeenCalledTimes(1)
+    expect(someLibraryMock.integerGenerator).toHaveBeenCalledTimes(1)
   } )
 } )

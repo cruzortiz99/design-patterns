@@ -1,28 +1,27 @@
 export interface SomeLibraryInterface {
-  method1 (): string
-  method2 (): string
-  method3 (): string
+  writeString (): string
+  integerGenerator (): number
+  writeOtherString (): string
 }
 export class SomeLibrary implements SomeLibraryInterface {
-  method1 (): string {
-    return "method 1"
+  writeString(): string {
+    return "String wrote"
   }
-  method2 (): string {
-    return "method 2"
+  integerGenerator(): number {
+    return Math.random() * 100
   }
-  method3 (): string {
-    return "method 3"
+  writeOtherString(): string {
+    return "Other string wrote"
   }
 }
-export interface BridgeLibrary {
-  feature (): string
-}
-export class BridgeConcreteLibrary implements BridgeLibrary {
+export class ServiceBridge {
   library: SomeLibraryInterface
   constructor ( library: SomeLibraryInterface ) {
     this.library = library
   }
-  feature (): string {
-    return `${this.library.method1()} ${this.library.method2()}`
+  concreteFeature (): string {
+    return `${this.library.writeString()}
+    ${this.library.writeOtherString()}
+    ${this.library.integerGenerator()}`
   }
 }
