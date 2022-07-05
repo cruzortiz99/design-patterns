@@ -25,7 +25,7 @@ func (b *CarBuilder) SetLts(lts float32) *CarBuilder {
 	b.car.Lts = lts
 	return b
 }
-func (b *CarBuilder) SetAc(ac bool) *CarBuilder {
+func (b *CarBuilder) SetAc(_ bool) *CarBuilder {
 	b.car.AC = true
 	return b
 }
