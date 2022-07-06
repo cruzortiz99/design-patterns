@@ -8,4 +8,4 @@ bin/
 .gradle/
 coverage/
 .vscode
-
+*code-workspace*
