@@ -1,29 +1,29 @@
-export interface Component {
-  execute (): void
+export interface UIComponent {
+  render (): string
 }
-export class Leaf implements Component {
-  execute (): void {
-    console.log( "some execution" )
+export class TextComponent implements UIComponent {
+  private message: string
+  constructor(message: string) {
+    this.message = message
+  }
+  render(): string {
+    return this.message
   }
 }
-export class Composite implements Component {
-  private children: Component[]
-  constructor ( component: Component ) {
+export class ContainerComposite implements UIComponent {
+  private children: UIComponent[]
+  constructor ( component: UIComponent ) {
     this.children = [component]
   }
-  execute (): void {
-    this.children.forEach( component => component.execute() )
+  render (): string {
+    return this.children.map((comp) => comp.render())
+      .reduce((acc, current) => `${acc}${current}`,"")
   }
-  add ( component: Component ): Composite {
+  add ( component: UIComponent ): ContainerComposite {
     this.children.push( component )
     return this
   }
-  remove ( index: number ): Composite {
-    this.children = this.children.filter( ( _, key ) => key !== index )
-    return this
+  remove ( component: UIComponent ) {
+    this.children = this.children.filter( ( child ) => component !== child )
   }
-  getChildren (): Component[] {
-    return [...this.children]
-  }
-
 }
