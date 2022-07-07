@@ -9,10 +9,13 @@ class UIComponent:
 class TextComponent(UIComponent):
     def __init__(self, message: str) -> None:
         super().__init__()
-        self.message = message
+        self._message = message
 
     def render(self) -> str:
-        return self.message
+        return self._message
+
+    def get_message(self) -> str:
+        return self._message
 
 
 class ContainerComposite(UIComponent):

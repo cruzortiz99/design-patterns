@@ -9,4 +9,7 @@ public class TextComponent implements UIComponent{
     public String render() {
         return message;
     }
+    public String getMessage() {
+        return this.message;
+    }
 }

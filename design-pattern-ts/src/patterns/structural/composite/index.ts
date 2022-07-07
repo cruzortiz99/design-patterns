@@ -2,11 +2,14 @@ export interface UIComponent {
   render (): string
 }
 export class TextComponent implements UIComponent {
-  private message: string
+  private message: string 
   constructor(message: string) {
     this.message = message
   }
   render(): string {
+    return this.message
+  }
+  getMessage(): string {
     return this.message
   }
 }

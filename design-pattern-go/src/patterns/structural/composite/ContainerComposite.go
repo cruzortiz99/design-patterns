@@ -9,16 +9,16 @@ type ContainerComposite struct {
 	UIComponent
 }
 
-func NewContainerComponent(component *UIComponent) ContainerComposite {
+func NewContainerComponent(component UIComponent) ContainerComposite {
 	return ContainerComposite{
-		children: []*UIComponent{component},
+		children: []*UIComponent{&component},
 	}
 }
 func (c ContainerComposite) Render() string {
 	result := ""
 	for _, componentRef := range c.children {
 		component := *componentRef
-		strings.Join([]string{
+		result = strings.Join([]string{
 			component.Render(),
 		}, result)
 	}
