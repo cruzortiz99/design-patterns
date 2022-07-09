@@ -1,24 +1,22 @@
-export interface Component {
-  execute (): void
+export interface ServiceInterface {
+  run(value: string): string;
 }
-export class BaseDecorator implements Component {
-  wrapped: Component
-  constructor ( component: Component ) {
-    this.wrapped = component
-  }
-  execute (): void {
-    return this.wrapped.execute()
+export class ServicePrintString implements ServiceInterface{
+  run(value: string): string {
+    return "Print: ".concat(value)
   }
 }
-export class ConcreteDecorator extends BaseDecorator {
-  constructor ( component: Component ) {
-    super( component )
+
+export class LoggerDecorator implements ServiceInterface {
+  private service: ServiceInterface
+  constructor(service: ServiceInterface) {
+    this.service = service
   }
-  extra (): void {
-    console.log( "extra work" )
+  run(value: string): string {
+    this.log(value)
+    return this.service.run(value) 
   }
-  execute (): void {
-    super.execute()
-    this.extra()
+  log(value: string) {
+    console.log("Logging: ".concat(value))
   }
 }
