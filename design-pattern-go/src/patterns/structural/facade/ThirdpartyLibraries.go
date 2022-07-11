@@ -16,8 +16,17 @@ type CompressionCodec struct{}
 type OggCompressionCodec struct {
 	CompressionCodec
 }
+
+func NewOggCompressionCodec() OggCompressionCodec {
+	return OggCompressionCodec{}
+}
+
 type MPEG4CompressionCodec struct {
 	CompressionCodec
+}
+
+func NewMPEG4CompressionCodec() MPEG4CompressionCodec {
+	return MPEG4CompressionCodec{}
 }
 
 func CodeFactoryExtract(file VideoFile) string {
@@ -43,6 +52,10 @@ func BitrateReaderBuffer(value string, source CompressionCodec) string {
 }
 
 type AudioMaker struct{}
+
+func NewAudioMaker() AudioMaker {
+	return AudioMaker{}
+}
 
 func (a *AudioMaker) Fix(value string) string {
 	return strings.Join([]string{"AudioMixer.Fix: ", value}, "")

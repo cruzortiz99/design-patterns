@@ -7,7 +7,7 @@ public class VideoConverter {
         filename);
     String sourceCode = ThirdPartyLibraries.CodecFactory.extract(file);
     ThirdPartyLibraries.CompressionCodec destinationCode;
-    if (format.matches(".mp4$")) {
+    if (format.matches("^mp4$")) {
       destinationCode = new ThirdPartyLibraries.MPEG4CompressionCodec();
     } else {
       destinationCode = new ThirdPartyLibraries.OggCompressionCodec();

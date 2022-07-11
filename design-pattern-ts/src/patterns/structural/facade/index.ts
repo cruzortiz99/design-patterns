@@ -1,19 +1,14 @@
-interface Component {
-  execute ( value: string ): string
-}
-export class SomeLibrary implements Component {
-  execute ( value: string ): string {
-    return value.concat( " from some library" )
+export class VideoFile {
+  filename: string
+  constructor(filename: string) {
+    this.filename = filename
   }
 }
-export class OtherLibrary implements Component {
-  execute ( value: string ): string {
-    return value.concat( "from other library" )
-  }
-}
+export class CompressionCode {}
 
-export class FacadeService {
-  feature ( value: string ): string {
-    return new OtherLibrary().execute( new SomeLibrary().execute( value ) )
-  }
+export class MPEG4CompressionCodec extends CompressionCode {}
+export class OggCompressionCodec extends CompressionCode {}
+
+export class CodecFactory {
+  static extract = (file: VideoFile): string => file.filename
 }
