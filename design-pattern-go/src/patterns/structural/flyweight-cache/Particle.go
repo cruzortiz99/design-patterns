@@ -7,7 +7,8 @@ type Particle struct {
 }
 
 func NewParticle(x int, y int, colorShape *ColorShape) Particle {
-	return Particle{x: x, y: y, repeatingState: colorShape}
+	var cachedColorShape = CreateParticleCacheFactory(colorShape).GetCache(colorShape)
+	return Particle{x: x, y: y, repeatingState: cachedColorShape}
 }
 
 func (p *Particle) Move(x int, y int) *Particle {
@@ -16,9 +17,12 @@ func (p *Particle) Move(x int, y int) *Particle {
 	return p
 }
 
-func (p *Particle) getX() int {
+func (p *Particle) GetX() int {
 	return p.x
 }
-func (p *Particle) getY() int {
+func (p *Particle) GetY() int {
 	return p.y
+}
+func (p *Particle) GetColorShape() *ColorShape {
+	return p.repeatingState
 }

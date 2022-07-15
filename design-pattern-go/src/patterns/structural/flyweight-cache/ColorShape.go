@@ -14,3 +14,9 @@ func (cs *ColorShape) Move(context *Particle, x int, y int) *Particle {
 	context.y = y
 	return context
 }
+func (cs *ColorShape) GetColor() string {
+	return cs.color
+}
+func (cs *ColorShape) GetShape() string {
+	return cs.shape
+}

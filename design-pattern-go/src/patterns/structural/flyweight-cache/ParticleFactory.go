@@ -1,28 +1,28 @@
 package flyweightcache
 
-type ParticleFactory struct {
+type ParticleCacheFactory struct {
 	cache []*ColorShape
 }
 
-var instance *ParticleFactory
+var instance *ParticleCacheFactory
 
-func CreateParticleFactory(initialState *ColorShape) *ParticleFactory {
+func CreateParticleCacheFactory(initialState *ColorShape) *ParticleCacheFactory {
 	if instance == nil {
-		localInstance := newParticleFactory(initialState)
+		localInstance := newParticleCacheFactory(initialState)
 		instance = &localInstance
 	}
 	return instance
 }
 
-func newParticleFactory(initialState *ColorShape) ParticleFactory {
+func newParticleCacheFactory(initialState *ColorShape) ParticleCacheFactory {
 	cache := []*ColorShape{}
 	if initialState != nil {
 		cache = append(cache, initialState)
 	}
-	return ParticleFactory{cache: cache}
+	return ParticleCacheFactory{cache: cache}
 }
 
-func (f *ParticleFactory) GetCache(colorShape *ColorShape) *ColorShape {
+func (f *ParticleCacheFactory) GetCache(colorShape *ColorShape) *ColorShape {
 	var cachedState *ColorShape
 	for _, savedState := range f.cache {
 		if savedState.color == colorShape.color &&
