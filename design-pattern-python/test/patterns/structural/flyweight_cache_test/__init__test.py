@@ -17,7 +17,7 @@ class ColorShapeMock(ColorShape):
 
 class FlyWeightCacheTest(unittest.TestCase):
     def test_should_return_unique_color_shape_when_is_not_cached(self):
-        unique_state = ColorShape("blue", "circle")
+        unique_state = ColorShape("blue", "triangle")
         particle = Particle(3, 2, unique_state)
         self.assertTrue(particle.repeating_state is unique_state)
 

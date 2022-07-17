@@ -1,5 +1,5 @@
 from functools import reduce
-from typing import List, Union
+from typing import List, Optional, Union
 
 
 class ColorShape:
@@ -15,7 +15,8 @@ class Particle:
     def __init__(self, x: int, y: int, color_shape: ColorShape) -> None:
         self._x = x
         self._y = y
-        self.repeating_state = color_shape
+        self.repeating_state = create_particle_factory(
+        ).get_cache(color_shape)
 
     def move(self, x: int, y: int) -> "Particle":
         return self.repeating_state.move(self, x, y)
@@ -52,3 +53,13 @@ class ParticleFactory:
             self.cache.append(colorShape)
             return colorShape
         return cachedState
+
+
+_particle_factory_instance: Optional[ParticleFactory] = None
+
+
+def create_particle_factory():
+    global _particle_factory_instance
+    if _particle_factory_instance is None:
+        _particle_factory_instance = ParticleFactory(None)
+    return _particle_factory_instance
