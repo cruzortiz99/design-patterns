@@ -32,4 +32,8 @@ public class Particle {
   public Number getY() {
     return this.y;
   }
+
+  public ColorShape getColorShape() {
+    return this.repeatingState;
+  }
 }
