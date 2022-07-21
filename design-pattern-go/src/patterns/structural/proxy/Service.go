@@ -11,6 +11,11 @@ type AddCustomPrefixService struct {
 	Service
 }
 
+func NewAddCustomPrefixService(prefix string) AddCustomPrefixService {
+	service := AddCustomPrefixService{}
+	service.prefix = prefix
+	return service
+}
 func (s *AddCustomPrefixService) AddPrefix(word string) string {
 	return strings.Join([]string{s.prefix, word}, "")
 }

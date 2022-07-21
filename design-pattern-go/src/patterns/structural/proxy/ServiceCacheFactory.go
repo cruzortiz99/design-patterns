@@ -7,7 +7,7 @@ type ServiceCacheFactory struct {
 var instance *ServiceCacheFactory
 
 func CreateServiceCacheFactory() *ServiceCacheFactory {
-	if instance != nil {
+	if instance == nil {
 		var localInstance = newServiceCacheFactory()
 		instance = &localInstance
 	}
