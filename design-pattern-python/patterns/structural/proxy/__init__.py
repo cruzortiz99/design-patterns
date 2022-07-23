@@ -20,7 +20,8 @@ class ServiceCacheFactory:
         self.cache: Dict[str, Any] = {}
 
     def is_cached(self, paramString: str) -> bool:
-        return self.cache[paramString] is not None
+        return paramString in self.cache and self.cache[
+            paramString] is not None
 
     def save_in_cache(self, paramString: str, value: Any) -> Any:
         self.cache[paramString] = value
