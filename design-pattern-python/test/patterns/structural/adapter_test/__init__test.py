@@ -1,5 +1,4 @@
 import unittest
-from unittest import result
 
 
 from patterns.structural.adapter import AdapterIntToStr, ServicePrintString
