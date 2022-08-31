@@ -3,7 +3,7 @@ package design.pattern.java.patterns.behavioral.chain_responsibility;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ChainResponsibility {
+public class ChainResponsibilityTest {
   class ValueWrapper {
     private Boolean wasCalled;
 
