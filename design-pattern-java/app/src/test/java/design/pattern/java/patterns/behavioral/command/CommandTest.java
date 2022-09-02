@@ -21,7 +21,6 @@ public class CommandTest {
 
   @Test
   public void shouldCallMethodWhenCommandExecutes() {
-
     ServiceMock testSrv = new ServiceMock();
     ServiceCommandBuilder testCommand = new ServiceCommandBuilder(testSrv);
     testCommand.setArgs("value").Run();
