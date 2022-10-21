@@ -10,16 +10,19 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Map;
 
 class AppTest {
-    @Test void appHasAGreeting() {
+    @Test
+    void appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
+
     @Test
     public void itShouldBldMapWithRightValuesWhenMakeMapIsCalledWithStrs() {
-        Map<String, String> mappedParams = new App().makeMapProperties("-Pname=cruz", "-Ptest=one");
+        Map<String, String> mappedParams = App.makeMapProperties("-Pname=cruz", "-Ptest=one");
         Assertions.assertEquals(mappedParams.getOrDefault("name", ""), "cruz");
         Assertions.assertEquals(mappedParams.getOrDefault("test", ""), "one");
     }
+
     @Test
     public void itShouldAvoidBadParamStructureWhenIsCalledWithStrs() {
         Map<String, String> mappedParams = App.makeMapProperties("name=cruz", "-test=one", "-Ptesttwo");
